@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowLeaf Digital Strategy Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f0f9f0 0%, #e8f5e8 100%);
+            color: #2c3e2c;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border: 1px solid rgba(76, 175, 80, 0.1);
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide:nth-child(1) { --delay: 0.1s; }
+        .slide:nth-child(2) { --delay: 0.2s; }
+        .slide:nth-child(3) { --delay: 0.3s; }
+        .slide:nth-child(4) { --delay: 0.4s; }
+        .slide:nth-child(5) { --delay: 0.5s; }
+        .slide:nth-child(6) { --delay: 0.6s; }
+        .slide:nth-child(7) { --delay: 0.7s; }
+        .slide:nth-child(8) { --delay: 0.8s; }
+        .slide:nth-child(9) { --delay: 0.9s; }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #66BB6A, #81C784);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Title Slide */
+        .title-slide {
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 50%, #81C784 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title-slide::before {
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05), rgba(255,255,255,0.1));
+        }
+
+        .title-slide::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .brand-logo {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand-tagline {
+            font-size: 2rem;
+            font-style: italic;
+            margin: 30px 0;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .author-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .author-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .author-card p {
+            font-size: 1.1rem;
+            margin: 8px 0;
+            opacity: 0.9;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2c3e2c;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #4CAF50;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #66BB6A);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2c3e2c;
+            margin: 25px 0 15px 0;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4CAF50;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #2c3e2c;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        /* Cards */
+        .card {
+            background: #fafafa;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.05), transparent);
+            transition: left 0.6s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(76, 175, 80, 0.15);
+            border-color: #4CAF50;
+        }
+
+        .product-card {
+            text-align: center;
+            background: linear-gradient(135deg, #f8fdf8 0%, #f0f9f0 100%);
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .persona-card {
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, #f8fdf8 100%);
+        }
+
+        .persona-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .persona-details {
+            background: rgba(76, 175, 80, 0.08);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .platform-card {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: scale(1.05);
+        }
+
+        .platform-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .data-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+
+        .data-table tr:hover {
+            background: #f8fdf8;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f8fdf8;
+            margin: 12px 0;
+            padding: 16px 24px;
+            border-left: 4px solid #4CAF50;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        li::before {
+            content: '→';
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        li:hover {
+            background: #e8f5e8;
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+        }
+
+        /* Highlight Boxes */
+        .highlight {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.3rem;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .business-model {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Navigation */
+        .nav-menu {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 4px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Revenue Features */
+        .revenue-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #f0f9f0, #e8f5e8);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 30px;
+                margin: 20px 0;
+            }
+            
+            .brand-logo {
+                font-size: 3.5rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                bottom: 20px;
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 15px;
+            }
+            
+            .nav-btn {
+                padding: 10px 16px;
+                font-size: 12px;
+                margin: 2px;
+            }
+        }
+
+        /* Additional Animations */
+        .card, .stat-card, .feature-item {
+            animation: slideIn 0.6s ease forwards;
+            animation-delay: var(--item-delay, 0s);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-menu">
+        <button class="nav-btn" onclick="scrollToSlide(0)">Home</button>
+        <button class="nav-btn" onclick="scrollToSlide(1)">Business</button>
+        <button class="nav-btn" onclick="scrollToSlide(2)">Products</button>
+        <button class="nav-btn" onclick="scrollToSlide(3)">Personas</button>
+        <button class="nav-btn" onclick="scrollToSlide(4)">Social</button>
+        <button class="nav-btn" onclick="scrollToSlide(5)">Website</button>
+        <button class="nav-btn" onclick="scrollToSlide(6)">SEO</button>
+        <button class="nav-btn" onclick="scrollToSlide(7)">Ads</button>
+        <button class="nav-btn" onclick="scrollToSlide(8)">Results</button>
+    </div>
+
+    <div class="presentation">
+        <!-- Title Slide -->
+        <div class="slide title-slide">
+            <div class="slide-number">01</div>
+            <div class="brand-logo">🌿 GlowLeaf</div>
+            <div class="brand-subtitle">Digital Strategy Simulation</div>
+            <div class="brand-tagline">"Natural Beauty for Modern Women"</div>
+            <div class="author-card">
+                <h3>P.P.M.M. Pushpakumara</h3>
+                <p><strong>Registration:</strong> 0000063562</p>
+                <p><strong>Program:</strong> Diploma in Digital Marketing - Part II</p>
+                <p><strong>Intake:</strong> II 2024</p>
+            </div>
+        </div>
+
+        <!-- Business Overview -->
+        <div class="slide">
+            <div class="slide-number">02</div>
+            <h2>🎯 Business Overview</h2>
+            
+            <div class="business-model">
+                <h3>Mission Statement</h3>
+                <p>"Redefining modern skincare by promoting confidence through healthy skin and conscious living"</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🏢 Brand Identity</h3>
+                    <ul>
+                        <li><strong>Brand:</strong> GlowLeaf Skincare</li>
+                        <li><strong>Industry:</strong> Beauty & Personal Care</li>
+                        <li><strong>Model:</strong> Direct-to-Consumer (D2C)</li>
+                        <li><strong>Target:</strong> Sri Lankan Women (18-30)</li>
+                        <li><strong>Focus:</strong> Natural, Clean Beauty</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>💎 Core Values</h3>
+                    <ul>
+                        <li><strong>Clean Beauty:</strong> Chemical-free formulations</li>
+                        <li><strong>Sustainability:</strong> Eco-friendly packaging</li>
+                        <li><strong>Transparency:</strong> Full ingredient disclosure</li>
+                        <li><strong>Affordability:</strong> Premium quality, accessible prices</li>
+                        <li><strong>Empowerment:</strong> Building confidence & self-love</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>💰 Revenue Streams</h3>
+            <div class="revenue-features">
+                <div class="feature-item">
+                    <span class="feature-icon">🛒</span>
+                    <h4>Online Sales</h4>
+                    <p>Website & Instagram Shop with seamless checkout experience</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📦</span>
+                    <h4>Subscription Boxes</h4>
+                    <p>Monthly curated skincare routines for recurring revenue</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⭐</span>
+                    <h4>Limited Editions</h4>
+                    <p>Seasonal exclusive launches creating urgency & exclusivity</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products -->
+        <div class="slide">
+            <div class="slide-number">03</div>
+            <h2>🧴 Product Portfolio</h2>
+            <div class="grid-3">
+                <div class="card product-card">
+                    <span class="product-icon">🍃</span>
+                    <h3>Green Tea Face Serum</h3>
+                    <div class="persona-details">
+                        <strong>Target:</strong> Clear-Skin Kavindi (22, Student)
+                    </div>
+                    <h4>Key Ingredients:</h4>
+                    <ul>
+                        <li>Sri Lankan green tea extract</li>
+                        <li>Niacinamide for clarity</li>
+                        <li>Vitamin E protection</li>
+                    </ul>
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Reduces acne & redness</li>
+                        <li>Brightens complexion</li>
+                        <li>Antioxidant protection</li>
+                        <li>Perfect for hormonal breakouts</li>
+                    </ul>
+                </div>
+                <div class="card product-card">
+                    <span class="product-icon">🥥</span>
+                    <h3>Coconut Hydrating Gel</h3>
+                    <div class="persona-details">
+                        <strong>Target:</strong> Glow-Up Nushara (28, Executive)
+                    </div>
+                    <h4>Key Ingredients:</h4>
+                    <ul>
+                        <li>King coconut water</li>
+                        <li>Aloe vera extract</li>
+                        <li>Hyaluronic acid</li>
+                    </ul>
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Deep hydration without heaviness</li>
+                        <li>Calms irritated skin</li>
+                        <li>Boosts elasticity</li>
+                        <li>Perfect for busy professionals</li>
+                    </ul>
+                </div>
+                <div class="card product-card">
+                    <span class="product-icon">🌿</span>
+                    <h3>Eco-Friendly Detox Kit</h3>
+                    <div class="persona-details">
+                        <strong>Target:</strong> Mindful Malsha (25, Designer)
+                    </div>
+                    <h4>Kit Contains:</h4>
+                    <ul>
+                        <li>Charcoal clay mask</li>
+                        <li>Herbal mist toner</li>
+                        <li>Bamboo cleansing pads</li>
+                    </ul>
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Deep pore cleansing</li>
+                        <li>Reduces dullness</li>
+                        <li>Sustainable skincare</li>
+                        <li>Weekend self-care ritual</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personas -->
+        <div class="slide">
+            <div class="slide-number">04</div>
+            <h2>👥 Target Customer Personas</h2>
+            <div class="grid-3">
+                <div class="card persona-card">
+                    <div class="persona-avatar">K</div>
+                    <h3>Clear-Skin Kavindi</h3>
+                    <div class="persona-details">
+                        <strong>Age:</strong> 22 | <strong>Location:</strong> Kandy<br>
+                        <strong>Job:</strong> University Student + Freelancer
+                    </div>
+                    <h4>Profile:</h4>
+                    <ul>
+                        <li>Acne-prone, oily skin</li>
+                        <li>Budget-conscious student</li>
+                        <li>Active on Instagram & YouTube</li>
+                        <li>Follows skincare influencers</li>
+                        <li>Values quick, effective results</li>
+                    </ul>
+                    <h4>Motivators:</h4>
+                    <ul>
+                        <li>Affordable pricing</li>
+                        <li>Visible improvements</li>
+                        <li>Peer recommendations</li>
+                    </ul>
+                </div>
+                <div class="card persona-card">
+                    <div class="persona-avatar">N</div>
+                    <h3>Glow-Up Nushara</h3>
+                    <div class="persona-details">
+                        <strong>Age:</strong> 28 | <strong>Location:</strong> Colombo<br>
+                        <strong>Job:</strong> Marketing Executive
+                    </div>
+                    <h4>Profile:</h4>
+                    <ul>
+                        <li>Dry skin from office environment</li>
+                        <li>Career-focused professional</li>
+                        <li>Uses Instagram & Pinterest</li>
+                        <li>Values convenience & efficiency</li>
+                        <li>Willing to invest in quality</li>
+                    </ul>
+                    <h4>Motivators:</h4>
+                    <ul>
+                        <li>Professional appearance</li>
+                        <li>Time-saving solutions</li>
+                        <li>Premium packaging</li>
+                    </ul>
+                </div>
+                <div class="card persona-card">
+                    <div class="persona-avatar">M</div>
+                    <h3>Mindful Malsha</h3>
+                    <div class="persona-details">
+                        <strong>Age:</strong> 25 | <strong>Location:</strong> Galle<br>
+                        <strong>Job:</strong> Freelance Designer
+                    </div>
+                    <h4>Profile:</h4>
+                    <ul>
+                        <li>Sensitive, environmentally conscious</li>
+                        <li>Supports ethical brands</li>
+                        <li>Active on YouTube & Facebook groups</li>
+                        <li>Values sustainability & transparency</li>
+                        <li>Prefers minimal waste</li>
+                    </ul>
+                    <h4>Motivators:</h4>
+                    <ul>
+                        <li>Eco-friendly practices</li>
+                        <li>Ethical sourcing</li>
+                        <li>Community values</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="slide">
+            <div class="slide-number">05</div>
+            <h2>📱 Social Media Strategy</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">75%</div>
+                    <div class="stat-label">of target audience uses Instagram</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">62%</div>
+                    <div class="stat-label">discover brands via Pinterest</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">trust peer reviews over ads</div>
+                </div>
+            </div>
+
+            <div class="grid-4">
+                <div class="card platform-card">
+                    <span class="platform-icon">📸</span>
+                    <h3>Instagram</h3>
+                    <p><strong>Visual Storytelling Hub</strong></p>
+                    <ul>
+                        <li>Product showcase reels</li>
+                        <li>Before/after transformations</li>
+                        <li>Influencer collaborations</li>
+                        <li>Shopping integration</li>
+                        <li>Customer testimonials</li>
+                    </ul>
+                </div>
+                <div class="card platform-card">
+                    <span class="platform-icon">📌</span>
+                    <h3>Pinterest</h3>
+                    <p><strong>Discovery & Inspiration</strong></p>
+                    <ul>
+                        <li>Skincare routine guides</li>
+                        <li>Ingredient benefit pins</li>
+                        <li>Self-care mood boards</li>
+                        <li>DIY skincare tips</li>
+                        <li>Seasonal beauty trends</li>
+                    </ul>
+                </div>
+                <div class="card platform-card">
+                    <span class="platform-icon">👥</span>
+                    <h3>Facebook</h3>
+                    <p><strong>Community Building</strong></p>
+                    <ul>
+                        <li>Educational content</li>
+                        <li>Customer support</li>
+                        <li>Brand storytelling</li>
+                        <li>Event promotions</li>
+                        <li>Group discussions</li>
+                    </ul>
+                </div>
+                <div class="card platform-card">
+                    <span class="platform-icon">🎵</span>
+                    <h3>TikTok</h3>
+                    <p><strong>Viral Content & Reviews</strong></p>
+                    <ul>
+                        <li>GRWM (Get Ready With Me) routines</li>
+                        <li>Product testing videos</li>
+                        <li>Behind-the-scenes content</li>
+                        <li>User-generated challenges (#GlowWithGlowLeaf)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Website -->
+        <div class="slide">
+            <div class="slide-number">06</div>
+            <h2>🌐 Website Strategy</h2>
+            
+            <div class="highlight">
+                <p>"A mobile-first, SEO-optimized D2C storefront that educates and converts"</p>
+            </div>
+
+            <h3>Proposed Structure</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Core Pages</h4>
+                    <ul>
+                        <li><strong>Home:</strong> Hero banner + featured products</li>
+                        <li><strong>Shop:</strong> Filterable product catalog</li>
+                        <li><strong>Product Pages:</strong> Videos, reviews, UGC gallery</li>
+                        <li><strong>Skincare Routine:</strong> Guides by skin concern</li>
+                        <li><strong>Blog:</strong> Ingredient deep dives</li>
+                        <li><strong>About Us:</strong> Brand story & values</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Instagram feed integration</li>
+                        <li>Skin quiz for product matching</li>
+                        <li>Subscription options</li>
+                        <li>WhatsApp/Instagram chat support</li>
+                        <li>One-click checkout</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Design Principles</h3>
+            <div class="grid-4">
+                <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <h4>Mobile-First</h4>
+                    <p>60%+ traffic from smartphones</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎨</span>
+                    <h4>Minimalist</h4>
+                    <p>Clean whitespace & earthy tones</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h4>Fast Loading</h4>
+                    <p><3s load time goal</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💡</span>
+                    <h4>Educational</h4>
+                    <p>Skincare knowledge hub</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO -->
+        <div class="slide">
+            <div class="slide-number">07</div>
+            <h2>🔍 SEO & Keyword Strategy</h2>
+            
+            <h3>Keyword Mapping</h3>
+            <table class="data-table">
+                <tr>
+                    <th>Page</th>
+                    <th>Brand Keyword</th>
+                    <th>Generic Keyword</th>
+                </tr>
+                <tr>
+                    <td>Home</td>
+                    <td>GlowLeaf Skincare</td>
+                    <td>Natural skincare Sri Lanka</td>
+                </tr>
+                <tr>
+                    <td>Green Tea Serum</td>
+                    <td>GlowLeaf Green Tea Serum</td>
+                    <td>Anti-acne serum Sri Lanka</td>
+                </tr>
+                <tr>
+                    <td>Coconut Gel</td>
+                    <td>GlowLeaf Hydrating Gel</td>
+                    <td>Lightweight moisturizer Sri Lanka</td>
+                </tr>
+                <tr>
+                    <td>Blog</td>
+                    <td>GlowLeaf Skincare Tips</td>
+                    <td>Skincare routine for young women</td>
+                </tr>
+            </table>
+
+            <h3>Optimization Plan</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>On-Page SEO</h4>
+                    <ul>
+                        <li>Keyword-rich meta titles/descriptions</li>
+                        <li>Header tags (H1-H3) with keywords</li>
+                        <li>Image alt text optimization</li>
+                        <li>Internal linking strategy</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Content Strategy</h4>
+                    <ul>
+                        <li>Weekly blog posts (800+ words)</li>
+                        <li>Video tutorials with transcripts</li>
+                        <li>User-generated content galleries</li>
+                        <li>FAQ schema markup</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Technical SEO</h4>
+                    <ul>
+                        <li>Mobile responsiveness check</li>
+                        <li>Page speed optimization</li>
+                        <li>XML sitemap submission</li>
+                        <li>Broken link monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ads -->
+        <div class="slide">
+            <div class="slide-number">08</div>
+            <h2>📢 Digital Advertising Plan</h2>
+            
+            <div class="highlight">
+                <p>"Convert high-intent audiences through targeted campaigns across platforms"</p>
+            </div>
+
+            <h3>Campaign Structure</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Green Tea Serum</h4>
+                    <ul>
+                        <li><strong>Objective:</strong> Conversions (Purchase)</li>
+                        <li><strong>Platforms:</strong> Instagram, Google Search</li>
+                        <li><strong>Audience:</strong> Women 18-25, acne concerns</li>
+                        <li><strong>Ad Types:</strong> Carousel, UGC testimonials</li>
+                        <li><strong>Budget:</strong> LKR 15,000/month</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Coconut Hydrating Gel</h4>
+                    <ul>
+                        <li><strong>Objective:</strong> Brand Awareness</li>
+                        <li><strong>Platforms:</strong> Pinterest, YouTube</li>
+                        <li><strong>Audience:</strong> Women 25-30, dry skin</li>
+                        <li><strong>Ad Types:</strong> Video tutorials, infographic pins</li>
+                        <li><strong>Budget:</strong> LKR 10,000/month</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Ad Mockups</h3>
+            <div class="grid-3">
+                <div class="feature-item">
+                    <span class="feature-icon">📸</span>
+                    <h4>Instagram Carousel</h4>
+                    <p>Before/after + ingredient close-ups</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔍</span>
+                    <h4>Google Search Ad</h4>
+                    <p>"Best natural serum for acne Sri Lanka"</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📌</span>
+                    <h4>Pinterest Pin</h4>
+                    <p>"3-step hydration routine" infographic</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="slide">
+            <div class="slide-number">09</div>
+            <h2>📈 Expected Outcomes</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6M+</div>
+                    <div class="stat-label">Monthly social reach</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">25%</div>
+                    <div class="stat-label">Website conversion rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3x</div>
+                    <div class="stat-label">ROI on ad spend</div>
+                </div>
+            </div>
+
+            <h3>Key Performance Indicators</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>Brand Awareness</h4>
+                    <ul>
+                        <li>Instagram followers: 10K in 6 months</li>
+                        <li>Brand search volume increase</li>
+                        <li>UGC hashtag usage</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Engagement</h4>
+                    <ul>
+                        <li>5%+ average engagement rate</li>
+                        <li>1K+ monthly blog reads</li>
+                        <li>500+ skincare quiz completions</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Revenue</h4>
+                    <ul>
+                        <li>50+ daily website visitors</li>
+                        <li>15% subscription retention</li>
+                        <li>20% repeat purchase rate</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <p>"By aligning digital touchpoints with audience behaviors, GlowLeaf will establish itself as Sri Lanka's leading clean skincare brand for young women."</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
